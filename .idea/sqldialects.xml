@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/k11柜子.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/合伙人分成.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/吉安煌钻.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/张静 每周一.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/数据查询.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/月票统计.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/邵阳市泓叶身份核验.sql" dialect="MySQL" />
+  </component>
+</project>
