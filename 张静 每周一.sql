@@ -12,10 +12,14 @@ FROM `tenant_employee_pay_divide_detail` te
 WHERE te.is_deleted = 0
   and te.tenant_id in (105, 155, 112)
   AND admin_id != 0
-  and te.create_time > '2024-10-21 12:00:40'
-  and te.create_time < '2024-10-28 12:00:40'
+  and te.create_time > '2024-11-04 12:00:40'
+  and te.create_time < '2024-11-11 12:00:40'
 order by te.tenant_id,te.id;
 
+
+
+select *
+from system_users where  id = 7014;
 
 
 
