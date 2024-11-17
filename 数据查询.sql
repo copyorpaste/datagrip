@@ -468,3 +468,34 @@ from ticket_order_bill where  ticket_order_id = 1644272;
 
 select *
 from back_end_user where  password='fznyjz369';
+
+select *
+from tenant where  is_employee_pay = 1 and is_deleted =0;
+
+
+select *
+from employee_renew_order where  tenant_id = 225;
+
+
+select *
+from tenant;
+
+
+
+select *
+from admin where  tenant_id = 103 and is_deleted =0 and avatarurl is not null;
+
+
+select *
+from tenant ;
+
+
+select *
+from room where  tenant_id = 238;
+
+select *
+from customer_info where reserve_room_id = 665940;
+
+
+select * from  reserve_room where  room_id = 6935
+

@@ -108,3 +108,60 @@ left join `yudao-ktv`.system_tenant st on st.id = stufc.tenant_id
 
 
 
+# -----月票 入我私账户
+select *,round(amount/cou,1) from (select t.id, t.name, a.nickname, count(te.admin_id != 0) as cou, round(sum(te.amt) / 100,1) as amount
+               from tenant_employee_pay_divide_detail te
+                        inner join tenant t on t.id = te.tenant_id
+                        inner join admin a on a.id = te.admin_id
+               where te.create_time > '2024-10-01 12:00:40'
+                 and te.create_time < '2024-11-01 12:00:40'
+                 and te.admin_id = 0
+                 and te.tenant_id not in (select id
+                                          from tenant
+                                          where employee_pay_mchnt_cd != '0004210F5853335')
+                 and te.is_deleted = 0
+               group by te.tenant_id, te.admin_id
+               order by cou desc) t
+;
+
+
+select id
+from tenant where  is_employee_pay = 1 and is_deleted =0 and id not in (select id                                                               from (
+    select *,round(amount/cou,1) from (select t.id, t.name, a.nickname, count(te.admin_id != 0) as cou, round(sum(te.amt) / 100,1) as amount
+               from tenant_employee_pay_divide_detail te
+                        inner join tenant t on t.id = te.tenant_id
+                        inner join admin a on a.id = te.admin_id
+               where te.create_time > '2024-10-01 12:00:40'
+                 and te.create_time < '2024-11-01 12:00:40'
+                 and te.admin_id = 0
+                 and te.tenant_id not in (select id
+                                          from tenant
+                                          where employee_pay_mchnt_cd != '0004210F5853335')
+                 and te.is_deleted = 0
+               group by te.tenant_id, te.admin_id
+               order by cou desc) t) t1
+    );
+
+
+
+select ten.id, ten.name,lasttime
+from (
+select tenant_id, max(create_time) as lasttime
+from  employee_renew_order
+
+group by tenant_id) t inner  join  tenant ten on ten.id = t.tenant_id
+
+order by  lasttime
+
+
+select *
+from tenant_employee_pay_divide_detail where  tenant_id = 238;
+
+
+select *
+from employee_renew_order where  tenant_id =238 and status =1;
+
+
+insert into tenant_employee_pay_divide_detail (tenant_id,admin_id,amt,is_deleted,create_time,update_time)
+select tenant_id,0,pay_amt,is_deleted,create_time,update_time
+from employee_renew_order where  tenant_id =238 and status =1;
