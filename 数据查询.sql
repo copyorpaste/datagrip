@@ -499,3 +499,21 @@ from customer_info where reserve_room_id = 665940;
 
 select * from  reserve_room where  room_id = 6935
 
+select id,face_sign,ident_check,only_emp_view_room,is_employee_pay,employee_pay_amt
+from tenant order by  id desc limit 1;
+
+select *
+from equipment order by id desc limit 20;
+
+
+
+select id,ident_check,ident_check_amt
+from tenant where name like '%安福TIMI%';
+
+select *
+from admin where  tenant_id = 248;
+
+select *
+from tenant_employee_pay_divide;
+
+

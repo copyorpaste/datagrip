@@ -3,8 +3,8 @@ from employee_cabinet_order eco
 inner join  employee e on e.id = eco.employee_id
 where eco.tenant_id = 12
   and eco.status = 1
-  and eco.create_time > '2024-10-01 12:00:00'
-  and eco.create_time < '2024-11-01 12:00:00';
+  and eco.create_time > '2024-11-01 12:00:00'
+  and eco.create_time < '2024-12-01 12:00:00';
 
 
 select * from tenant;

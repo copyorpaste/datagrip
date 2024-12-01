@@ -14,6 +14,6 @@ WHERE te.is_deleted = 0
   and te.tenant_id = 95
   AND admin_id != 0
 
- and te.create_time > '2024-10-01 12:00:40'
-  and te.create_time < '2024-11-01 12:00:40';
+ and te.create_time > '2024-11-01 12:00:40'
+  and te.create_time < '2024-12-01 12:00:40';
 
